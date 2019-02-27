@@ -79,39 +79,39 @@ DEFAULT_REGION=`aws configure get region`
 echo "The default region is '$DEFAULT_REGION'" | tee -a $LOG_FILE
 
 # There are no associative arrays in bash 3 (Mac OS X) :(
-# Ubuntu 17.10 hvm:ebs-ssd
+# Ubuntu 18.04 hvm:ebs-ssd
 # See https://cloud-images.ubuntu.com/locator/ec2/ if this needs fixing
 echo "Determining the image ID to use according to region..." | tee -a $LOG_FILE
 case $DEFAULT_REGION in
-  ap-south-1) UBUNTU_IMAGE_ID=ami-94e4b5fb
+  ap-south-1) UBUNTU_IMAGE_ID=ami-01d6dff2590762a96
   ;;
-  us-east-1) UBUNTU_IMAGE_ID=ami-28516d52
+  us-east-1) UBUNTU_IMAGE_ID=ami-0c1481f2732d82982
   ;;
-  ap-northeast-1) UBUNTU_IMAGE_ID=ami-49640b2f
+  ap-northeast-1) UBUNTU_IMAGE_ID=ami-062c4c2caab985b81
   ;;
-  eu-west-1) UBUNTU_IMAGE_ID=ami-3b5f535b
+  eu-west-1) UBUNTU_IMAGE_ID=ami-0a10e725ed0eaf48c
   ;;
-  ap-southeast-1) UBUNTU_IMAGE_ID=ami-26fc875a
+  ap-southeast-1) UBUNTU_IMAGE_ID=ami-078b90ef1dce61046
   ;;
-  us-west-1) UBUNTU_IMAGE_ID=ami-b87819c1
+  us-west-1) UBUNTU_IMAGE_ID=ami-045ea583d8678e780
   ;;
-  eu-central-1) UBUNTU_IMAGE_ID=ami-dd51c9b2
+  eu-central-1) UBUNTU_IMAGE_ID=ami-0a4e97a724f672c4c
   ;;
-  sa-east-1) UBUNTU_IMAGE_ID=ami-bc9bd7d0
+  sa-east-1) UBUNTU_IMAGE_ID=ami-0dd69c5e4add5d8c1
   ;;
-  ap-southeast-2) UBUNTU_IMAGE_ID=ami-78ac551a
+  ap-southeast-2) UBUNTU_IMAGE_ID=ami-03f2717aebd47830e
   ;;
-  ap-northeast-2) UBUNTU_IMAGE_ID=ami-5771d239
+  ap-northeast-2) UBUNTU_IMAGE_ID=ami-0c681d510c6be123b
   ;;
-  us-west-2) UBUNTU_IMAGE_ID=ami-70873908
+  us-west-2) UBUNTU_IMAGE_ID=ami-0dc34f4b016c9ce49
   ;;
-  us-east-2) UBUNTU_IMAGE_ID=ami-6a5f6a0f
+  us-east-2) UBUNTU_IMAGE_ID=ami-0dcd8f62a00af3d76
   ;;
-  eu-west-2) UBUNTU_IMAGE_ID=ami-261a0042
+  eu-west-2) UBUNTU_IMAGE_ID=ami-074b5df8ae4f0657c
   ;;
-  ca-central-1) UBUNTU_IMAGE_ID=ami-043fba60
+  ca-central-1) UBUNTU_IMAGE_ID=ami-02f2f9bf10e78c447
   ;;
-  eu-west-3) UBUNTU_IMAGE_ID=ami-d7ce78aa
+  eu-west-3) UBUNTU_IMAGE_ID=ami-0f5c7de49c06a54b1
   ;;
 esac
 echo "The image for region '$DEFAULT_REGION' is '$UBUNTU_IMAGE_ID' ..."
