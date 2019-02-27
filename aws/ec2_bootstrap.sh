@@ -39,9 +39,7 @@ Note: to run the web applications and view them at http://localhost:5000 you wil
 If you have problems, please file an issue at https://github.com/rjurney/Agile_Data_Code_2/issues
 ------------------------------------------------------------------------------------------------------------------------
 
-For help building 'big data' applications like this one, or for training regarding same, contact Russell Jurney <rjurney@datasyndrome.com> or find more information at http://datasyndrome.com
-
-Enjoy! Russell Jurney @rjurney <russell.jurney@gmail.com> http://linkedin.com/in/russelljurney
+You are on Fork https://github.com/sses79/Agile_Data_Code_2 
 
 END_HELLO
 
@@ -82,10 +80,10 @@ sudo chgrp -R ubuntu /home/ubuntu/anaconda
 #
 # Install Clone repo, install Python dependencies
 #
-echo "Cloning https://github.com/rjurney/Agile_Data_Code_2 repository and installing dependencies ..." \
+echo "Cloning https://github.com/sses79/Agile_Data_Code_2 repository and installing dependencies ..." \
   | tee -a $LOG_FILE
 cd /home/ubuntu
-git clone https://github.com/rjurney/Agile_Data_Code_2
+git clone https://github.com/sses79/Agile_Data_Code_2
 cd /home/ubuntu/Agile_Data_Code_2
 export PROJECT_HOME=/home/ubuntu/Agile_Data_Code_2
 echo "export PROJECT_HOME=/home/ubuntu/Agile_Data_Code_2" | sudo tee -a /home/ubuntu/.bash_profile
@@ -130,13 +128,13 @@ sudo chgrp -R ubuntu /home/ubuntu/hadoop
 # Install Spark
 #
 echo "" | tee -a $LOG_FILE
-echo "Downloading and installing Spark 2.2.1 ..." | tee -a $LOG_FILE
-curl -Lko /tmp/spark-2.2.1-bin-without-hadoop.tgz http://apache.mirrors.lucidnetworks.net/spark/spark-2.2.1/spark-2.2.1-bin-hadoop2.7.tgz
+echo "Downloading and installing Spark 2.2.3 ..." | tee -a $LOG_FILE
+curl -Lko /tmp/spark-2.2.3-bin-without-hadoop.tgz http://apache.mirrors.lucidnetworks.net/spark/spark-2.2.3/spark-2.2.3-bin-hadoop2.7.tgz
 mkdir -p /home/ubuntu/spark
 cd /home/ubuntu
-tar -xvf /tmp/spark-2.2.1-bin-without-hadoop.tgz -C spark --strip-components=1
+tar -xvf /tmp/spark-2.2.3-bin-without-hadoop.tgz -C spark --strip-components=1
 
-echo "Configuring Spark 2.2.1 ..." | tee -a $LOG_FILE
+echo "Configuring Spark 2.2.3 ..." | tee -a $LOG_FILE
 echo "" >> /home/ubuntu/.bash_profile
 echo "# Spark environment setup" | sudo tee -a /home/ubuntu/.bash_profile
 export SPARK_HOME=/home/ubuntu/spark
