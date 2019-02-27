@@ -1,5 +1,4 @@
 Flask
-airflow
 beautifulsoup4 
 bs4
 frozendict
@@ -20,4 +19,3 @@ tldextract
 wikipedia
 findspark
 iso8601
-notebook==5.0.0
