@@ -53,6 +53,12 @@ sudo chmod 0755 /etc/update-motd.d/99-agile-data-science
 sudo update-motd
 
 #
+# apt-get new
+#
+sudo apt-get update
+sudo apt-get install -y zip unzip
+
+#
 # Install Java and setup ENV
 #
 echo "Installing and configuring Java 8 from Oracle ..." | tee -a $LOG_FILE
