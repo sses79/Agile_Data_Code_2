@@ -8,6 +8,7 @@ echo "Installing essential packages via apt-get in non-interactive mode ..." | t
 sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" upgrade
 sudo apt-get install -y zip unzip curl bzip2 python-dev build-essential git libssl1.0.0 libssl-dev \
     software-properties-common debconf-utils python-software-properties
+sudo apt install -y zip unzip
 
 # Update the motd message to create instructions for users when they ssh in
 echo "Updating motd boot message with instructions for the user of the image ..." | tee -a $LOG_FILE
@@ -87,7 +88,7 @@ git clone https://github.com/sses79/Agile_Data_Code_2
 cd /home/ubuntu/Agile_Data_Code_2
 export PROJECT_HOME=/home/ubuntu/Agile_Data_Code_2
 echo "export PROJECT_HOME=/home/ubuntu/Agile_Data_Code_2" | sudo tee -a /home/ubuntu/.bash_profile
-conda install -y python==3.6
+conda install -y python==3.6.7
 conda install -y iso8601 numpy scipy scikit-learn matplotlib ipython jupyter
 pip install -r requirements.txt
 sudo chown -R ubuntu /home/ubuntu/Agile_Data_Code_2
