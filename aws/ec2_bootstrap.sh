@@ -87,7 +87,7 @@ git clone https://github.com/sses79/Agile_Data_Code_2
 cd /home/ubuntu/Agile_Data_Code_2
 export PROJECT_HOME=/home/ubuntu/Agile_Data_Code_2
 echo "export PROJECT_HOME=/home/ubuntu/Agile_Data_Code_2" | sudo tee -a /home/ubuntu/.bash_profile
-conda install -y python=3.5
+conda install -y python==3.6
 conda install -y iso8601 numpy scipy scikit-learn matplotlib ipython jupyter
 pip install -r requirements.txt
 sudo chown -R ubuntu /home/ubuntu/Agile_Data_Code_2
