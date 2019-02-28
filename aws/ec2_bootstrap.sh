@@ -216,11 +216,11 @@ rm -rf /home/ubuntu/mongo-hadoop
 #
 # Install ElasticSearch in the elasticsearch directory in the root of our project, and the Elasticsearch for Hadoop package
 #
-echo "curl -sLko /tmp/elasticsearch-5.2.1.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.1.tar.gz"
-curl -sLko /tmp/elasticsearch-5.2.1.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.1.tar.gz
+echo "curl -sLko /tmp/elasticsearch-6.6.0.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.6.0.tar.gz"
+curl -sLko /tmp/elasticsearch-6.6.0.tar.gz https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.6.0.tar.gz
 mkdir /home/ubuntu/elasticsearch
 cd /home/ubuntu
-tar -xvzf /tmp/elasticsearch-5.2.1.tar.gz -C elasticsearch --strip-components=1
+tar -xvzf /tmp/elasticsearch-6.6.0.tar.gz -C elasticsearch --strip-components=1
 sudo chown -R ubuntu /home/ubuntu/elasticsearch
 sudo chgrp -R ubuntu /home/ubuntu/elasticsearch
 sudo mkdir -p /home/ubuntu/elasticsearch/logs
@@ -236,14 +236,14 @@ curl 'localhost:9200/agile_data_science/on_time_performance/_search?q=Origin:ATL
 
 # Install Elasticsearch for Hadoop
 echo "" | tee -a $LOG_FILE
-echo "Installing and configuring Elasticsearch for Hadoop/Spark version 5.5.1 ..." | tee -a $LOG_FILE
-curl -Lko /tmp/elasticsearch-hadoop-6.1.3.zip http://download.elastic.co/hadoop/elasticsearch-hadoop-6.1.3.zip
-unzip /tmp/elasticsearch-hadoop-6.1.3.zip
-mv /home/ubuntu/elasticsearch-hadoop-6.1.3 /home/ubuntu/elasticsearch-hadoop
-cp /home/ubuntu/elasticsearch-hadoop/dist/elasticsearch-hadoop-6.1.3.jar /home/ubuntu/Agile_Data_Code_2/lib/
-cp /home/ubuntu/elasticsearch-hadoop/dist/elasticsearch-spark-20_2.10-6.1.3.jar /home/ubuntu/Agile_Data_Code_2/lib/
+echo "Installing and configuring Elasticsearch for Hadoop/Spark version 6.6.0 ..." | tee -a $LOG_FILE
+curl -Lko /tmp/elasticsearch-hadoop-6.6.0.zip https://artifacts.elastic.co/downloads/elasticsearch-hadoop/elasticsearch-hadoop-6.6.0.zip
+unzip /tmp/elasticsearch-hadoop-6.6.0.zip
+mv /home/ubuntu/elasticsearch-hadoop-6.6.0 /home/ubuntu/elasticsearch-hadoop
+cp /home/ubuntu/elasticsearch-hadoop/dist/elasticsearch-hadoop-6.6.0.jar /home/ubuntu/Agile_Data_Code_2/lib/
+cp /home/ubuntu/elasticsearch-hadoop/dist/elasticsearch-spark-20_2.11-6.6.0.jar /home/ubuntu/Agile_Data_Code_2/lib/
 echo "spark.speculation false" | sudo tee -a /home/ubuntu/spark/conf/spark-defaults.conf
-rm -f /tmp/elasticsearch-hadoop-6.1.3.zip
+rm -f /tmp/elasticsearch-hadoop-6.6.0.zip
 rm -rf /home/ubuntu/elasticsearch-hadoop/conf/spark-defaults.conf
 
 sudo chgrp -R ubuntu /home/ubuntu/elasticsearch-hadoop
@@ -262,7 +262,7 @@ curl -Lko lib/lzo-hadoop-1.0.5.jar http://central.maven.org/maven2/org/anarres/l
 cd /home/ubuntu
 
 # Set the spark.jars path
-echo "spark.jars /home/ubuntu/Agile_Data_Code_2/lib/mongo-hadoop-spark-2.0.2.jar,/home/ubuntu/Agile_Data_Code_2/lib/mongo-java-driver-3.4.2.jar,/home/ubuntu/Agile_Data_Code_2/lib/mongo-hadoop-2.0.2.jar,/home/ubuntu/Agile_Data_Code_2/lib/elasticsearch-spark-20_2.10-6.1.3.jar,/home/ubuntu/Agile_Data_Code_2/lib/snappy-java-1.1.7.1.jar,/home/ubuntu/Agile_Data_Code_2/lib/lzo-hadoop-1.0.5.jar,/home/ubuntu/Agile_Data_Code_2/lib/commons-httpclient-3.1.jar" | sudo tee -a /home/ubuntu/spark/conf/spark-defaults.conf
+echo "spark.jars /home/ubuntu/Agile_Data_Code_2/lib/mongo-hadoop-spark-2.0.2.jar,/home/ubuntu/Agile_Data_Code_2/lib/mongo-java-driver-3.4.2.jar,/home/ubuntu/Agile_Data_Code_2/lib/mongo-hadoop-2.0.2.jar,/home/ubuntu/Agile_Data_Code_2/lib/elasticsearch-spark-20_2.11-6.6.0.jar,/home/ubuntu/Agile_Data_Code_2/lib/snappy-java-1.1.7.1.jar,/home/ubuntu/Agile_Data_Code_2/lib/lzo-hadoop-1.0.5.jar,/home/ubuntu/Agile_Data_Code_2/lib/commons-httpclient-3.1.jar" | sudo tee -a /home/ubuntu/spark/conf/spark-defaults.conf
 
 #
 # Kafka install and setup
