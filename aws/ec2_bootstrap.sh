@@ -118,12 +118,24 @@ echo "" >> /home/ubuntu/.bash_profile
 echo '# Hadoop environment setup' | sudo tee -a /home/ubuntu/.bash_profile
 export HADOOP_HOME=/home/ubuntu/hadoop
 echo 'export HADOOP_HOME=/home/ubuntu/hadoop' | sudo tee -a /home/ubuntu/.bash_profile
-export PATH=$PATH:$HADOOP_HOME/bin
-echo 'export PATH=$PATH:$HADOOP_HOME/bin' | sudo tee -a /home/ubuntu/.bash_profile
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+echo 'export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin' | sudo tee -a /home/ubuntu/.bash_profile
 export HADOOP_CLASSPATH=$(hadoop classpath)
 echo 'export HADOOP_CLASSPATH=$(hadoop classpath)' | sudo tee -a /home/ubuntu/.bash_profile
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 echo 'export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop' | sudo tee -a /home/ubuntu/.bash_profile
+export HADOOP_INSTALL=$HADOOP_HOME
+echo 'export HADOOP_INSTALL=$HADOOP_HOME' | sudo tee -a /home/ubuntu/.bash_profile
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+echo 'export HADOOP_MAPRED_HOME=$HADOOP_HOME' | sudo tee -a /home/ubuntu/.bash_profile
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+echo 'export HADOOP_COMMON_HOME=$HADOOP_HOME' | sudo tee -a /home/ubuntu/.bash_profile
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+echo 'export HADOOP_HDFS_HOME=$HADOOP_HOME' | sudo tee -a /home/ubuntu/.bash_profile
+export YARN_HOME=$HADOOP_HOME
+echo 'export YARN_HOME=$HADOOP_HOME' | sudo tee -a /home/ubuntu/.bash_profile
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+echo 'export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native' | sudo tee -a /home/ubuntu/.bash_profile
 
 # Give to ubuntu
 echo "Giving hadoop to user ubuntu ..." | tee -a $LOG_FILE
