@@ -8,7 +8,6 @@ echo "Installing essential packages via apt-get in non-interactive mode ..." | t
 sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" upgrade
 sudo apt-get install -y zip unzip curl bzip2 python-dev build-essential git libssl1.0.0 libssl-dev \
     software-properties-common debconf-utils python-software-properties
-sudo apt install -y zip unzip
 
 # Update the motd message to create instructions for users when they ssh in
 echo "Updating motd boot message with instructions for the user of the image ..." | tee -a $LOG_FILE
