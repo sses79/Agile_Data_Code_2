@@ -107,13 +107,13 @@ curl -Lko /home/ubuntu/Agile_Data_Code_2/lib/commons-httpclient-3.1.jar http://c
 # Install Hadoop
 #
 echo "" | tee -a $LOG_FILE
-echo "Downloading and installing Hadoop 3.0.1 ..." | tee -a $LOG_FILE
-curl -Lko /tmp/hadoop-3.0.1.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-3.0.1/hadoop-3.0.1.tar.gz
+echo "Downloading and installing Hadoop 2.8.5 ..." | tee -a $LOG_FILE
+curl -Lko /tmp/hadoop-2.8.5.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz
 mkdir -p /home/ubuntu/hadoop
 cd /home/ubuntu/
-tar -xvf /tmp/hadoop-3.0.1.tar.gz -C hadoop --strip-components=1
+tar -xvf /tmp/hadoop-2.8.5.tar.gz -C hadoop --strip-components=1
 
-echo "Configuring Hadoop 3.0.1 ..." | tee -a $LOG_FILE
+echo "Configuring Hadoop 2.8.5 ..." | tee -a $LOG_FILE
 echo "" >> /home/ubuntu/.bash_profile
 echo '# Hadoop environment setup' | sudo tee -a /home/ubuntu/.bash_profile
 export HADOOP_HOME=/home/ubuntu/hadoop
@@ -134,13 +134,13 @@ sudo chgrp -R ubuntu /home/ubuntu/hadoop
 # Install Spark
 #
 echo "" | tee -a $LOG_FILE
-echo "Downloading and installing Spark 2.2.3 ..." | tee -a $LOG_FILE
-curl -Lko /tmp/spark-2.2.3-bin-without-hadoop.tgz http://apache.mirrors.lucidnetworks.net/spark/spark-2.2.3/spark-2.2.3-bin-hadoop2.7.tgz
+echo "Downloading and installing Spark 2.4.0 ..." | tee -a $LOG_FILE
+curl -Lko /tmp/spark-2.4.0-bin-hadoop2.7.tgz https://archive.apache.org/dist/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz
 mkdir -p /home/ubuntu/spark
 cd /home/ubuntu
-tar -xvf /tmp/spark-2.2.3-bin-without-hadoop.tgz -C spark --strip-components=1
+tar -xvf /tmp/spark-2.4.0-bin-hadoop2.7.tgz -C spark --strip-components=1
 
-echo "Configuring Spark 2.2.3 ..." | tee -a $LOG_FILE
+echo "Configuring Spark 2.4.0 ..." | tee -a $LOG_FILE
 echo "" >> /home/ubuntu/.bash_profile
 echo "# Spark environment setup" | sudo tee -a /home/ubuntu/.bash_profile
 export SPARK_HOME=/home/ubuntu/spark
