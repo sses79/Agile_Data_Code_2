@@ -14,30 +14,7 @@ echo "Updating motd boot message with instructions for the user of the image ...
 sudo apt-get install -y update-motd
 cat > /home/ubuntu/agile_data_science.message << END_HELLO
 
-------------------------------------------------------------------------------------------------------------------------
 Welcome to Agile Data Science 2.0!
-
-If the Agile_Data_Code_2 directory (and others for hadoop, spark, mongodb, elasticsearch, etc.) aren't present, please wait a few minutes for the install script to finish.
-
-Book reader, now you need to run the download scripts! To do so, run the following commands:
-
-cd Agile_Data_Code_2
-./download.sh
-
-Video viewers and free spirits, to skip ahead to chapter 8, you will need to run the following command:
-
-cd Agile_Data_Code_2
-ch08/download_data.sh
-
-Those working chapter 10, on the weather, will need to run the following commands:
-
-cd Agile_Data_Code_2
-./download_weather.sh
-
-Note: to run the web applications and view them at http://localhost:5000 you will now need to run the ec2_create_tunnel.sh script from your local machine.
-
-If you have problems, please file an issue at https://github.com/rjurney/Agile_Data_Code_2/issues
-------------------------------------------------------------------------------------------------------------------------
 
 You are on Fork https://github.com/sses79/Agile_Data_Code_2 
 
@@ -51,15 +28,11 @@ EOF
 sudo chmod 0755 /etc/update-motd.d/99-agile-data-science
 sudo update-motd
 
-#
 # apt-get new
-#
 sudo apt-get update
 sudo apt-get install -y zip unzip
 
-#
 # Install Java and setup ENV
-#
 echo "Installing and configuring Java 8 from Oracle ..." | tee -a $LOG_FILE
 sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
@@ -69,9 +42,7 @@ sudo apt-get install -y oracle-java8-installer oracle-java8-set-default
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-oracle" | sudo tee -a /home/ubuntu/.bash_profile
 
-#
 # Install Miniconda
-#
 echo "Installing and configuring miniconda3 latest ..." | tee -a $LOG_FILE
 curl -Lko /tmp/Miniconda3-latest-Linux-x86_64.sh https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 chmod +x /tmp/Miniconda3-latest-Linux-x86_64.sh
@@ -83,9 +54,7 @@ echo 'export PATH=/home/ubuntu/anaconda/bin:$PATH' | sudo tee -a /home/ubuntu/.b
 sudo chown -R ubuntu /home/ubuntu/anaconda
 sudo chgrp -R ubuntu /home/ubuntu/anaconda
 
-#
-# Install Clone repo, install Python dependencies
-#
+#Install Clone repo, install Python dependencies
 echo "Cloning https://github.com/sses79/Agile_Data_Code_2 repository and installing dependencies ..." \
   | tee -a $LOG_FILE
 cd /home/ubuntu
