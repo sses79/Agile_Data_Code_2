@@ -103,6 +103,8 @@ export HADOOP_HDFS_HOME=$HADOOP_HOME
 echo 'export HADOOP_HDFS_HOME=$HADOOP_HOME' | sudo tee -a /home/ubuntu/.bash_profile
 export YARN_HOME=$HADOOP_HOME
 echo 'export YARN_HOME=$HADOOP_HOME' | sudo tee -a /home/ubuntu/.bash_profile
+export HADOOP_OPTS=-Djava.library.path=$HADOOP_HOME/lib/native
+echo 'export HADOOP_OPTS=-Djava.library.path=$HADOOP_HOME/lib/native' | sudo tee -a /home/ubuntu/.bash_profile
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 echo 'export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native' | sudo tee -a /home/ubuntu/.bash_profile
 
